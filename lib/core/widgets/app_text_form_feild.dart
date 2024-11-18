@@ -14,21 +14,28 @@ class AppTextFormFeild extends StatelessWidget {
     required this.hintText,
     this.isObscureText,
     this.suffixIcon,
+    this.backgroundColor, this.cursorColor,
   });
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
   final TextStyle? inputTextStyle;
+  final Color? backgroundColor;
   final TextStyle? hintTextStyle;
   final String hintText;
+  final Color? cursorColor;
   final bool? isObscureText;
   final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor:cursorColor?? ColorsManger.mainBlue,
       decoration: InputDecoration(
+        
+        fillColor: backgroundColor ?? ColorsManger.moreLightGray,
         isDense: true,
+        filled: true,
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(
               horizontal: 20.w,
@@ -46,7 +53,7 @@ class AppTextFormFeild extends StatelessWidget {
                   const BorderSide(color: ColorsManger.lighterGray, width: 1.3),
               borderRadius: BorderRadius.circular(16),
             ),
-        helperStyle: hintTextStyle ?? TextStyles.font14LightGrayRegular,
+        hintStyle: hintTextStyle ?? TextStyles.font14LightGrayRegular,
         hintText: hintText,
         suffixIcon: suffixIcon,
       ),

@@ -10,15 +10,16 @@ class GetStartedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      style: ButtonStyle(
-        minimumSize: WidgetStateProperty.all(const Size(double.infinity,52)),
-        backgroundColor: WidgetStateProperty.all(ColorsManger.mainBlue),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)))
-      ),
+        style: ButtonStyle(
+            minimumSize:
+                WidgetStateProperty.all(const Size(double.infinity, 52)),
+            backgroundColor: WidgetStateProperty.all(ColorsManger.mainBlue),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            shape: WidgetStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16)))),
         onPressed: () {
           context.pushNamed(Routes.loginScreen);
         },
-        child:  Text('Get Started',style: TextStyles.font16WhiteSemiBold));
+        child: Text('Get Started', style: TextStyles.font16WhiteMedium));
   }
 }
