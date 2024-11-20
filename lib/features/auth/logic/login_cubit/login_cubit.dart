@@ -1,11 +1,9 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:taqwa/features/auth/data/models/login_request_body.dart';
 import 'package:taqwa/features/auth/data/repos/login_repo.dart';
 import 'package:taqwa/features/auth/logic/login_cubit/login_state.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-@freezed
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo _loginRepo;
   LoginCubit(this._loginRepo) : super(const LoginState.initial());
