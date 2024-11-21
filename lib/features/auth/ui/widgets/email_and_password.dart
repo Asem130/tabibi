@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taqwa/core/helpers/app_regex.dart';
 import 'package:taqwa/core/helpers/space_vector.dart';
 import 'package:taqwa/core/widgets/app_text_form_feild.dart';
 import 'package:taqwa/features/auth/logic/login_cubit/login_cubit.dart';
@@ -26,6 +26,20 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   void initState() {
     passwordController = context.read<LoginCubit>().passwordController;
     super.initState();
+    setupPasswordControllerListener();
+  }
+
+  void setupPasswordControllerListener() {
+    passwordController.addListener(() {
+      setState(() {
+        hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
+        hasUpperCase = AppRegex.hasUpperCase(passwordController.text);
+        hasNumber = AppRegex.hasNumber(passwordController.text);
+        hasSpecialCharacter =
+            AppRegex.hasSpecialCharacter(passwordController.text);
+        hasMinLength = AppRegex.hasMinLength(passwordController.text);
+      });
+    });
   }
 
   @override
@@ -35,20 +49,19 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         child: Column(
           children: [
             AppTextFormFeild(
+              controller: context.read<LoginCubit>().emailController,
+              hintText: 'Email',
               validator: (value) {
-                if (value == null || value.isEmpty) {
+                if (value == null ||
+                    value.isEmpty ||
+                    !AppRegex.isEmailValid(value)) {
                   return 'please enter a valid email';
                 }
               },
-              hintText: 'Email',
             ),
             verticalSpace(18),
             AppTextFormFeild(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'please enter a valid password';
-                }
-              },
+              controller: context.read<LoginCubit>().passwordController,
               isObscureText: isObscureText,
               hintText: 'Password',
               suffixIcon: GestureDetector(
@@ -61,6 +74,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                   isObscureText ? Icons.visibility_off : Icons.visibility,
                 ),
               ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'please enter a valid password';
+                }
+              },
             ),
             verticalSpace(24),
             PasswordValidation(
@@ -72,5 +90,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             ),
           ],
         ));
+  }
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    super.dispose();
   }
 }

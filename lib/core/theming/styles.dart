@@ -39,14 +39,24 @@ class TextStyles {
     fontSize: 13.sp,
     fontWeight: FontWeightHepler.regular,
   );
+  static TextStyle font14BlueSemiBold = TextStyle(
+    color: ColorsManger.mainBlue,
+    fontSize: 14.sp,
+    fontWeight: FontWeightHepler.semiBold,
+  );
   static TextStyle font13DarkBlueRegular = TextStyle(
     color: ColorsManger.darkBlue,
     fontSize: 13.sp,
     fontWeight: FontWeightHepler.regular,
   );
-    static TextStyle font13DarkBlueMedium = TextStyle(
+  static TextStyle font13DarkBlueMedium = TextStyle(
     color: ColorsManger.darkBlue,
     fontSize: 13.sp,
+    fontWeight: FontWeightHepler.medium,
+  );
+  static TextStyle font15DarkBlueMedium = TextStyle(
+    color: ColorsManger.darkBlue,
+    fontSize: 15.sp,
     fontWeight: FontWeightHepler.medium,
   );
   static TextStyle font13LightGrayRegular = TextStyle(

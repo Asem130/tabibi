@@ -4,6 +4,7 @@ import 'package:taqwa/core/di/depandency_injection.dart';
 import 'package:taqwa/core/routing/routes.dart';
 import 'package:taqwa/features/auth/logic/login_cubit/login_cubit.dart';
 import 'package:taqwa/features/auth/ui/screens/login_sceen.dart';
+import 'package:taqwa/features/home/ui/home_screen.dart';
 import 'package:taqwa/features/onboarding/ui/screens/onboarding_screen.dart';
 
 class AppRouter {
@@ -13,11 +14,13 @@ class AppRouter {
       case Routes.onboardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       case Routes.loginScreen:
-      //متنساش ال <>.
+        //متنساش ال <>.
         return MaterialPageRoute(
             builder: (_) => BlocProvider<LoginCubit>(
                 create: (context) => getIt<LoginCubit>(),
                 child: const LoginSceen()));
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => const Scaffold(

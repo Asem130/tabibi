@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taqwa/core/helpers/space_vector.dart';
 import 'package:taqwa/core/theming/styles.dart';
 import 'package:taqwa/core/widgets/app_text_button.dart';
+import 'package:taqwa/features/auth/data/models/login_request_body.dart';
+import 'package:taqwa/features/auth/logic/login_cubit/login_cubit.dart';
 import 'package:taqwa/features/auth/ui/widgets/already_have_account_text.dart';
 import 'package:taqwa/features/auth/ui/widgets/email_and_password.dart';
+import 'package:taqwa/features/auth/ui/widgets/login_bloc_listener.dart';
 import 'package:taqwa/features/auth/ui/widgets/terms_and_condition_text.dart';
 
-class LoginSceen extends StatefulWidget {
+class LoginSceen extends StatelessWidget {
   const LoginSceen({super.key});
 
-  @override
-  State<LoginSceen> createState() => _LoginSceenState();
-}
-
-class _LoginSceenState extends State<LoginSceen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,12 +48,15 @@ class _LoginSceenState extends State<LoginSceen> {
                     AppTextButton(
                       buttonText: 'Login',
                       textStyle: TextStyles.font16WightSemibold,
-                      onPressed: () {},
+                      onPressed: () {
+                        validateThenDoLogin(context);
+                      },
                     ),
                     verticalSpace(16),
                     const TermsAndConditionText(),
                     verticalSpace(60),
                     const AlreadyHaveAccountText(),
+                    const LoginBlocListener()
                   ],
                 ),
               ],
@@ -63,5 +65,15 @@ class _LoginSceenState extends State<LoginSceen> {
         ),
       ),
     );
+    
+  }
+  
+}
+
+void validateThenDoLogin(BuildContext context) {
+  if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+    context.read<LoginCubit>().emitLoginState(LoginRequestBody(
+        email: context.read<LoginCubit>().emailController.text,
+        password: context.read<LoginCubit>().passwordController.text));
   }
 }
