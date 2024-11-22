@@ -1,8 +1,8 @@
 import 'package:taqwa/core/networking/api_error_handler.dart';
 import 'package:taqwa/core/networking/api_result.dart';
 import 'package:taqwa/core/networking/api_service.dart';
-import 'package:taqwa/features/auth/data/models/login_request_body.dart';
-import 'package:taqwa/features/auth/data/models/login_response.dart';
+import 'package:taqwa/features/login/data/models/login_request_body.dart';
+import 'package:taqwa/features/login/data/models/login_response.dart';
 
 class LoginRepo {
   LoginRepo(this._apiServices);

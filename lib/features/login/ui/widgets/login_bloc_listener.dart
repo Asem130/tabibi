@@ -4,8 +4,8 @@ import 'package:taqwa/core/helpers/extensions.dart';
 import 'package:taqwa/core/routing/routes.dart';
 import 'package:taqwa/core/theming/colors.dart';
 import 'package:taqwa/core/theming/styles.dart';
-import 'package:taqwa/features/auth/logic/login_cubit/login_cubit.dart';
-import 'package:taqwa/features/auth/logic/login_cubit/login_state.dart';
+import 'package:taqwa/features/login/logic/login_cubit/login_cubit.dart';
+import 'package:taqwa/features/login/logic/login_cubit/login_state.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});

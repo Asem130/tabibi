@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:taqwa/core/networking/api_constants.dart';
-import 'package:taqwa/features/auth/data/models/login_request_body.dart';
-import 'package:taqwa/features/auth/data/models/login_response.dart';
+import 'package:taqwa/features/login/data/models/login_request_body.dart';
+import 'package:taqwa/features/login/data/models/login_response.dart';
 
 part 'api_service.g.dart';
 

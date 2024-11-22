@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taqwa/core/helpers/app_regex.dart';
 import 'package:taqwa/core/helpers/space_vector.dart';
 import 'package:taqwa/core/widgets/app_text_form_feild.dart';
-import 'package:taqwa/features/auth/logic/login_cubit/login_cubit.dart';
-import 'package:taqwa/features/auth/ui/widgets/password_validation.dart';
+import 'package:taqwa/features/login/logic/login_cubit/login_cubit.dart';
+import 'package:taqwa/features/login/ui/widgets/password_validation.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});

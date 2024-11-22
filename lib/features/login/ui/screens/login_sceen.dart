@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taqwa/core/helpers/space_vector.dart';
 import 'package:taqwa/core/theming/styles.dart';
 import 'package:taqwa/core/widgets/app_text_button.dart';
-import 'package:taqwa/features/auth/data/models/login_request_body.dart';
-import 'package:taqwa/features/auth/logic/login_cubit/login_cubit.dart';
-import 'package:taqwa/features/auth/ui/widgets/already_have_account_text.dart';
-import 'package:taqwa/features/auth/ui/widgets/email_and_password.dart';
-import 'package:taqwa/features/auth/ui/widgets/login_bloc_listener.dart';
-import 'package:taqwa/features/auth/ui/widgets/terms_and_condition_text.dart';
+import 'package:taqwa/features/login/data/models/login_request_body.dart';
+import 'package:taqwa/features/login/logic/login_cubit/login_cubit.dart';
+import 'package:taqwa/features/login/ui/widgets/already_have_account_text.dart';
+import 'package:taqwa/features/login/ui/widgets/email_and_password.dart';
+import 'package:taqwa/features/login/ui/widgets/login_bloc_listener.dart';
+import 'package:taqwa/features/login/ui/widgets/terms_and_condition_text.dart';
 
 class LoginSceen extends StatelessWidget {
   const LoginSceen({super.key});

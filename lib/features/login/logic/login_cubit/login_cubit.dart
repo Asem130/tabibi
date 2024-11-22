@@ -1,9 +1,10 @@
 import 'package:flutter/widgets.dart';
-import 'package:taqwa/features/auth/data/models/login_request_body.dart';
-import 'package:taqwa/features/auth/data/repos/login_repo.dart';
-import 'package:taqwa/features/auth/logic/login_cubit/login_state.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taqwa/features/login/data/repos/login_repo.dart';
+
+import '../../data/models/login_request_body.dart';
+import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   TextEditingController emailController = TextEditingController();
