@@ -40,7 +40,7 @@ Widget buildValidationRow(String text, bool hasValidation) {
     children: [
       const CircleAvatar(
         radius: 2.5,
-        backgroundColor: ColorsManger.gray,
+        backgroundColor: ColorsManager.gray,
       ),
       horizontalSpace(6),
       Text(
@@ -49,7 +49,7 @@ Widget buildValidationRow(String text, bool hasValidation) {
             decoration: hasValidation ? TextDecoration.lineThrough : null,
             decorationColor: Colors.green,
             decorationThickness: 2,
-            color: hasValidation ? ColorsManger.gray : ColorsManger.darkBlue),
+            color: hasValidation ? ColorsManager.gray : ColorsManager.darkBlue),
       )
     ],
   );

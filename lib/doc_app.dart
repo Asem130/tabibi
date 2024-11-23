@@ -19,7 +19,7 @@ class DocApp extends StatelessWidget {
         title: 'Doc App',
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
-          primaryColor: ColorsManger.mainBlue,
+          primaryColor: ColorsManager.mainBlue,
         ),
       ),
     );

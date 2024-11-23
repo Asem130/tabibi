@@ -3,12 +3,7 @@ part 'register_response.g.dart';
 
 @JsonSerializable()
 class RegisterResponse {
-  RegisterResponse(
-    this.code,
-    this.message,
-    this.status,
-    this.userData,
-  );
+  RegisterResponse({this.message, this.userData, this.status, this.code});
   String? message;
   @JsonKey(name: 'data')
   UserData? userData;
@@ -20,7 +15,7 @@ class RegisterResponse {
 
 @JsonSerializable()
 class UserData {
-  UserData(this.token, this.userName);
+  UserData({this.token, this.userName});
   String? token;
   @JsonKey(name: 'username')
   String? userName;

@@ -35,9 +35,9 @@ class AppTextFormFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      cursorColor: cursorColor ?? ColorsManger.mainBlue,
+      cursorColor: cursorColor ?? ColorsManager.mainBlue,
       decoration: InputDecoration(
-        fillColor: backgroundColor ?? ColorsManger.moreLightGray,
+        fillColor: backgroundColor ?? ColorsManager.moreLightGray,
         isDense: true,
         filled: true,
         contentPadding: contentPadding ??
@@ -48,21 +48,21 @@ class AppTextFormFeild extends StatelessWidget {
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
               borderSide:
-                  const BorderSide(color: ColorsManger.mainBlue, width: 1.3),
+                  const BorderSide(color: ColorsManager.mainBlue, width: 1.3),
               borderRadius: BorderRadius.circular(16),
             ),
         errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: ColorsManger.red, width: 1.3),
+          borderSide: const BorderSide(color: ColorsManager.red, width: 1.3),
           borderRadius: BorderRadius.circular(16),
         ),
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
               borderSide:
-                  const BorderSide(color: ColorsManger.lighterGray, width: 1.3),
+                  const BorderSide(color: ColorsManager.lighterGray, width: 1.3),
               borderRadius: BorderRadius.circular(16),
             ),
         focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: ColorsManger.red, width: 1.3),
+          borderSide: const BorderSide(color: ColorsManager.red, width: 1.3),
           borderRadius: BorderRadius.circular(16),
         ),
         hintStyle: hintTextStyle ?? TextStyles.font14LightGrayRegular,

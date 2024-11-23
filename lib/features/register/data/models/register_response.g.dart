@@ -8,12 +8,12 @@ part of 'register_response.dart';
 
 RegisterResponse _$RegisterResponseFromJson(Map<String, dynamic> json) =>
     RegisterResponse(
-      (json['code'] as num?)?.toInt(),
-      json['message'] as String?,
-      json['status'] as bool?,
-      json['data'] == null
+      message: json['message'] as String?,
+      userData: json['data'] == null
           ? null
           : UserData.fromJson(json['data'] as Map<String, dynamic>),
+      status: json['status'] as bool?,
+      code: (json['code'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$RegisterResponseToJson(RegisterResponse instance) =>
@@ -25,8 +25,8 @@ Map<String, dynamic> _$RegisterResponseToJson(RegisterResponse instance) =>
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
-      json['token'] as String?,
-      json['username'] as String?,
+      token: json['token'] as String?,
+      userName: json['username'] as String?,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{

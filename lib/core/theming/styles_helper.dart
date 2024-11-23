@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FontWeightHepler {
+class FontWeightHelper {
   static const thin = FontWeight.w100;
   static const extraLight = FontWeight.w200;
   static const light = FontWeight.w300;

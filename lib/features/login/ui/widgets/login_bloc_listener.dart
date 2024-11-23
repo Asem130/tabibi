@@ -22,7 +22,7 @@ class LoginBlocListener extends StatelessWidget {
                 context: context,
                 builder: (context) => const Center(
                   child: CircularProgressIndicator(
-                    color: ColorsManger.mainBlue,
+                    color: ColorsManager.mainBlue,
                   ),
                 ),
               );
@@ -46,7 +46,7 @@ class LoginBlocListener extends StatelessWidget {
       builder: (context) => AlertDialog(
         icon: const Icon(
           Icons.error,
-          color: ColorsManger.red,
+          color: ColorsManager.red,
         ),
         content: Text(
           error,
