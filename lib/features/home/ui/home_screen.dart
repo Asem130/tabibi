@@ -3,6 +3,7 @@ import 'package:taqwa/core/helpers/space_vector.dart';
 import 'package:taqwa/features/home/ui/widgets/blue_doctors_continer.dart';
 import 'package:taqwa/features/home/ui/widgets/doctor_speciality_list_view.dart';
 import 'package:taqwa/features/home/ui/widgets/doctor_speciality_see_all.dart';
+import 'package:taqwa/features/home/ui/widgets/doctors_list_view.dart';
 import 'package:taqwa/features/home/ui/widgets/home_top_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -23,7 +24,8 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(16),
               DoctorSpecialitySeeAll(),
               verticalSpace(16),
-              DoctorSpecialityListView()
+              DoctorSpecialityListView(),
+              DoctorsListView(),
             ],
           ),
         ),
