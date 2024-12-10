@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:taqwa/core/helpers/space_vector.dart';
 import 'package:taqwa/features/home/ui/widgets/blue_doctors_continer.dart';
-import 'package:taqwa/features/home/ui/widgets/doctor_speciality_list_view.dart';
 import 'package:taqwa/features/home/ui/widgets/doctor_speciality_see_all.dart';
-import 'package:taqwa/features/home/ui/widgets/doctors_list_view.dart';
 import 'package:taqwa/features/home/ui/widgets/home_top_bar.dart';
+import 'package:taqwa/features/home/ui/widgets/specialization_and_doctors_bloc_builder.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +25,7 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(16),
               DoctorSpecialitySeeAll(),
               verticalSpace(16),
-              DoctorSpecialityListView(),
-              DoctorsListView(),
+              SpecializationAndDoctorsBlocBuilder()
             ],
           ),
         ),

@@ -30,8 +30,11 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) => HomeCubit(getIt()),  // ركز هنا انا هنا مسجلتش ال HomeCubit فى ال Di  وعملت كد 
+                  create: (context) => HomeCubit(getIt())
+                    ..getSpecialization(), // ركز هنا انا هنا مسجلتش ال HomeCubit فى ال Di  وعملت كد
                   child: const HomeScreen(),
+
+                  //
                 ));
       default:
         return null;
