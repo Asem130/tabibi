@@ -1,6 +1,10 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:taqwa/core/helpers/constants.dart';
+import 'package:taqwa/core/helpers/shared_pref_helper.dart';
+import 'package:taqwa/core/networking/dio_factory.dart';
 import 'package:taqwa/features/login/data/repos/login_repo.dart';
 
 import '../../data/models/login_request_body.dart';
@@ -16,10 +20,16 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loding());
     final response = await _loginRepo.login(LoginRequestBody(
         email: emailController.text, password: passwordController.text));
-    response.when(success: (loginResponse) {
+    response.when(success: (loginResponse) async {
+      await saveUserToken(loginResponse.userData?.token ?? '');
       emit(LoginState.success(loginResponse));
     }, failure: (error) {
       emit(LoginState.error(error: error.apiErrorModel.message ?? ""));
     });
+  }
+
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }

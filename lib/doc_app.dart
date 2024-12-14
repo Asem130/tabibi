@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taqwa/core/helpers/constants.dart';
 import 'package:taqwa/core/routing/app_router.dart';
 import 'package:taqwa/core/routing/routes.dart';
 import 'package:taqwa/core/theming/colors.dart';
@@ -14,7 +15,7 @@ class DocApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.homeScreen,
+        initialRoute:isLoggedInUser? Routes.homeScreen:Routes.loginScreen,
         onGenerateRoute: appRouter.generateRoutes,
         title: 'Doc App',
         theme: ThemeData(
