@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taqwa/core/helpers/extensions.dart';
+import 'package:taqwa/core/networking/api_error_model.dart';
 import 'package:taqwa/core/routing/routes.dart';
 import 'package:taqwa/core/theming/colors.dart';
 import 'package:taqwa/core/theming/styles.dart';
@@ -14,7 +15,9 @@ class LoginBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
         listenWhen: (previous, current) =>
-            current is Loding || current is Success || current is Error,
+            current is LoginLoding ||
+            current is LoginSuccess ||
+            current is LoginError,
         listener: (context, state) {
           state.whenOrNull(
             loding: () {
@@ -40,7 +43,7 @@ class LoginBlocListener extends StatelessWidget {
         child: const SizedBox.square());
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -49,7 +52,7 @@ class LoginBlocListener extends StatelessWidget {
           color: ColorsManager.red,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorsMessage(),
           style: TextStyles.font15DarkBlueMedium,
         ),
         actions: [

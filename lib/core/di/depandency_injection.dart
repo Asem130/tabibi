@@ -4,7 +4,6 @@ import 'package:taqwa/core/networking/api_service.dart';
 import 'package:taqwa/core/networking/dio_factory.dart';
 import 'package:taqwa/features/home/data/apis/home_api_services.dart';
 import 'package:taqwa/features/home/data/repos/specialization_repo.dart';
-import 'package:taqwa/features/home/logic/specialization_cubit.dart';
 import 'package:taqwa/features/login/data/repos/login_repo.dart';
 import 'package:taqwa/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:taqwa/features/register/data/repos/register_repo.dart';

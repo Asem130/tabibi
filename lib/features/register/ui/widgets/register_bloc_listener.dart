@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taqwa/core/helpers/extensions.dart';
+import 'package:taqwa/core/networking/api_error_model.dart';
 import 'package:taqwa/core/theming/colors.dart';
 import 'package:taqwa/features/register/logic/register_cubit/register_cubit.dart';
 import 'package:taqwa/features/register/logic/register_cubit/register_state.dart';
@@ -32,8 +33,8 @@ class RegisterBlocListener extends StatelessWidget {
             context.pop();
             showSuccessDialog(context);
           },
-          error: (error) {
-            setupErrorState(context, error);
+          error: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           },
         );
       },
@@ -72,7 +73,7 @@ class RegisterBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context: context,
@@ -83,7 +84,7 @@ class RegisterBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+           apiErrorModel.getAllErrorsMessage(),
           style: TextStyles.font15DarkBlueMedium,
         ),
         actions: [

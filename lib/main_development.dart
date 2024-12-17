@@ -6,9 +6,8 @@ import 'package:taqwa/core/helpers/shared_pref_helper.dart';
 import 'package:taqwa/core/routing/app_router.dart';
 import 'package:taqwa/doc_app.dart';
 
-
 void main() {
- WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   setupGetit();
   runApp(DocApp(
     appRouter: AppRouter(),
@@ -17,7 +16,7 @@ void main() {
 
 checkIfLoggedInUser() async {
   String? userToken =
-      await SharedPrefHelper.getString(SharedPrefKeys.userToken);
+      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
   if (userToken.isNullOrEmpty()) {
     isLoggedInUser = true;
   } else {

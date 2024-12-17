@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taqwa/core/di/depandency_injection.dart';
 import 'package:taqwa/core/routing/routes.dart';
-import 'package:taqwa/features/home/logic/specialization_cubit.dart';
+import 'package:taqwa/features/home/logic/home_cubit.dart';
 import 'package:taqwa/features/home/ui/home_screen.dart';
 import 'package:taqwa/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:taqwa/features/login/ui/screens/login_sceen.dart';

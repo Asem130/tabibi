@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:taqwa/features/home/data/models/sepcialization_reponse_model.dart';
-import 'package:taqwa/features/home/ui/widgets/doctors_item.dart';
+import 'package:taqwa/features/home/ui/widgets/doctors_list/doctors_item.dart';
 
 class DoctorsListView extends StatelessWidget {
   const DoctorsListView({super.key, required this.doctorsList});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taqwa/core/networking/api_error_model.dart';
 import 'package:taqwa/features/register/data/models/register_request_body.dart';
 import 'package:taqwa/features/register/data/repos/register_repo.dart';
 import 'package:taqwa/features/register/logic/register_cubit/register_state.dart';
@@ -29,8 +30,8 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     response.when(success: (registerResponse) {
       emit(RegisterState.success(registerResponse));
-    }, failure: (error) {
-      emit(RegisterState.error(error: error.apiErrorModel.message ?? ''));
+    }, failure: (apiErrorModel) {
+      emit(RegisterState.error(apiErrorModel));
     });
   }
 }

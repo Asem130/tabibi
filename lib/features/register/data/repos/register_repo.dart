@@ -13,7 +13,7 @@ class RegisterRepo {
       final response = await _apiServices.register(registerRequestBody);
       return ApiResult.success(response);
     } catch (errro) {
-      return ApiResult.failure(ErrorHandler.handle(errro));
+      return ApiResult.failure(ApiErrorHandler.handle(errro));
     }
   }
 }
